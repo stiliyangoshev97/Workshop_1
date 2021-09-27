@@ -1,0 +1,46 @@
+<!DOCTYPE>
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+    {% block comments_list %}
+        <div class="container-fluid">
+            <br>
+            <div class="row">
+                <div class="container-fluid col-sm-3 col-md-6">
+                    <p>Comments for {{ animal.animal_name }}</p>
+
+
+
+                </div>
+
+             <div class="container-fluid col-sm-3 col-md-6">
+                    <p>Comments for {{ animal.animal_name }}</p>
+
+                    {% for comment in comments %}
+                        <p>{{ comment.text }}</p>
+                    {% endfor %}
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    {% endblock %}
+
+
+
+
+

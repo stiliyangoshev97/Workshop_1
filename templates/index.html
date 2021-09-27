@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+
+{% block index %}
+
+<p><h3>Hello <a href="{% url 'profiles:profile_details' %}">{{ request.user }}</a></h3></p>
+
+
+{% endblock %}

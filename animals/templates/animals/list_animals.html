@@ -1,0 +1,31 @@
+<!DOCTYPE>
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+<!-- Loading capitalize.py from templatetags folder -->
+{% load capitalize %}
+
+{% load custom_filters %}
+
+<!-- Loading count_animals.py from templatetags folder -->
+{% load count_animals %}
+
+
+{% block list_animals %}
+    <p style="text-align: right;">Total animals: {% count_animals %}</p>
+    <ol>
+        {% for animal in animals %}
+
+                <li style="text-align: center;
+                font-size: 16px;
+                 margin: 15px 15px 15px 15px;">
+                    <!-- truncatechars means that it will have 10 chars -->
+                   <!-- {{ animal.animal_name|lower|capfirst|truncatechars:10 }} -->
+                    {{ animal.animal_name|capitalize|check_for_hey|insert_underscore_in_the_middle }} -> <a href="{% url 'animals:animal_details' pk=animal.id %}">{{ animal.animal_name|check_for_g }}</a> is mammal: <b>{{ animal.is_mammal }}</b>
+                </li>
+
+        {% endfor %}
+     </ol>
+
+    {% endblock %}

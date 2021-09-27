@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap4 %}
+{% load profile_complete_notification %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="{% static 'accounts/js/style.js' %}"></script>
+
+	<title></title>
+
+	<style>
+	body {
+	  margin: 0;
+	  font-size: 14px;
+	  font-family: Arial, Helvetica, sans-serif;
+	}
+
+	#navbar {
+	  overflow: hidden;
+	  background-color: dodgerblue;
+	}
+
+
+	/* User .content + .sticky, basically our navbar does not overslap the page content (the body of the HTML page) */
+
+	.content {
+	  padding: 16px;
+	}
+
+	.sticky {
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	}
+
+	.sticky + .content {
+	  padding-top: 60px;
+	}
+</style>
+
+	
+</head>
+<body>
+
+	{% include '_navbar.html' %}
+
+	<!-- Text-muted makes text grey -->
+	<div class="container text-muted content">
+		{% block index %}
+		{% endblock %}
+
+		<!-- Templatetag to check if profile is completed -->
+		{% if request.user.is_authenticated %}
+			{% profile_complete_notification %}
+		{% endif %}
+
+        {% block create_animal %}
+        {% endblock %}
+
+	
+
+		{% block register %}
+
+		{% endblock %}
+
+		{% block profile_details %}
+
+		{% endblock %}
+
+        {% block create_animals %}
+
+        {% endblock %}
+
+        {% block update_animals %}
+        {% endblock %}
+
+        {% block list_animals %}
+        {% endblock %}
+
+        {% block animal_details %}
+        {% endblock %}
+
+        {% block animal_photos %}
+        {% endblock %}
+
+        {% block comment %}
+        {%  endblock %}
+
+        {% block comments_list %}
+        {% endblock %}
+
+        {% block add_photos %}
+        {% endblock %}
+	</div>
+
+
+
+  <!-- Copyright -->
+  <footer class="footer">
+	  <div class="text-center p-3 text-white">
+	    	<p class="text-white">Stiliyan Goshev - SoftUni Project</p>
+	  </div>
+  <!-- Copyright -->
+</footer>
+
+<script>
+	window.onscroll = function() {myFunction()};
+
+	var navbar = document.getElementById("navbar");
+	var sticky = navbar.offsetTop;
+
+	function myFunction() {
+	  if (window.pageYOffset >= sticky) {
+	    navbar.classList.add("sticky")
+	  } else {
+	    navbar.classList.remove("sticky");
+	  }
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE>
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+    {% block comment %}
+
+
+     <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form comment_form %}
+
+        <input type="submit" value="Comment" name="Comment" class="btn btn-primary">
+    </form>
+
+
+    </div>
+    {% endblock %}
+
+
+

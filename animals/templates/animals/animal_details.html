@@ -1,0 +1,67 @@
+<!DOCTYPE>
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+    {% block animal_details %}
+        <div class="container-fluid">
+            <br>
+            <div class="row">
+                <div class="col-sm-3 col-md-6">
+                        <p>Animal details:</p>
+                        - Type:<b>{{ animal.animal_name }}</b><br>
+                        - Mammal: <b>{{ animal.is_mammal }}</b><br>
+                        <br>
+
+                        <!-- Loading the photo -->
+                        <img class="animal_image" alt="Animal Photo" src="{{ animal.animal_photo.url }}" />
+                    <div style="margin-top: 2px;">
+                    </div>
+                    <br>
+                        <div class="col-sm-3 col-md-6">
+                        <a href="{% url 'animals:animal_photos' animal.animal_name %}"><button class="btn">Other photos</button></a>
+
+                        <p>Update this animal?
+                        <a href="{% url 'animals:update_animal' animal.id %}"><button class="btn btn-primary">Update</button></a>
+                        </p>
+                        <p>Or maybe delete it?
+                        <a href="{% url 'animals:delete_animal' animal.id %}"><button class="btn btn-danger">Delete</button></a>
+                    </p>
+                        </div>
+
+                    <p><a href="{% url 'animals:comment' animal.id %}">Write a comment?</a></p>
+                    </div>
+
+                        <div class="container comments col-sm-3 col-md-6">
+                            <a href="{% url 'animals:comments_list' animal.id %}"><p>Click to check the comments:</p></a>
+                            <ol>
+
+                                {% for comment in comments %}
+                                    <li><p>{{ comment.text }} - written by {{ comment.user.email }}</p></li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+
+                        <div class="col-sm-3 col-md-6">
+                            <a href="{% url 'animals:add_photos' animal.id%}"><button>Add photos</button></a>
+
+
+                        </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+    {% endblock %}
+
+
+
+
+

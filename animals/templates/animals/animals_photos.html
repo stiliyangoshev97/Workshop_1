@@ -1,0 +1,24 @@
+<!DOCTYPE>
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+
+
+    {% block animal_photos %}
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-6">
+                {% for photo in animals_photos %}
+                    {% if photo.animal.animal_name == animal.animal_name %}
+                        <img class="animal_image" alt="Photo" src="{{ photo.photo.url }}" />
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+            </div>
+    {% endblock %}

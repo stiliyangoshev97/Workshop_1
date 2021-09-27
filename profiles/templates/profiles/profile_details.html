@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+
+{% block profile_details %}
+
+<p><h3>Hello {{ request.user }}</h3></p>
+
+
+<form method="POST" action="{% url 'profiles:profile_details' %}" enctype="multipart/form-data">
+
+	{% csrf_token %}
+	{% bootstrap_form form %}
+
+	<input type="submit" name="submit" value="submit" class="btn btn-primary">
+
+</form>
+
+
+{% endblock %}

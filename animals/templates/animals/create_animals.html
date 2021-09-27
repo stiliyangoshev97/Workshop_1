@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+<!-- Loading count.animals.py -->
+{% load count_animals %}
+
+{% load custom_inclusion_tags %}
+
+
+
+{% block create_animals %}
+
+
+<!-- Inclusion tag -->
+<br>
+{% animals_preview %}
+
+    <form method="POST" class="form" style="padding: 50px 350px 150px 350px;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" value="Submit" name="Submit" style="margin-top: 5px; position: relative; left: 520px;">
+    </form>
+    <!-- Loading count_mammals inclusion tag from custom_inclusion_tags.py -->
+{% count_mammals %}
+
+
+
+{% endblock %}

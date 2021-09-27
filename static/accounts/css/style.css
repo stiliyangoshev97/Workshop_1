@@ -1,0 +1,41 @@
+/* Footer at the bottom of the page */
+.footer {
+  position: sticky;
+  margin-top: 582px; /* negative value of footer height */
+  clear:both;
+  padding-top:20px;
+  background-color: dodgerblue;
+  height: inherit;
+} 
+
+#navbar a {
+  float: left;
+  display: block;
+  color: whitesmoke;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.animal_image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid whitesmoke;
+}
+
+
+/*#navbar a.active {
+  color: black;
+  text-decoration-color: whitesmoke;
+  font-size: 14px;
+  font-style: italic;
+}
+
+
+*/
